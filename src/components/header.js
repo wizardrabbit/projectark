@@ -4,7 +4,9 @@ import MainImage from '../images/index.js';
 const Header = () => (
   <header>
     <div id="header-menu">
-      <img id="title-logo" src={MainImage.title} alt="" />
+      <Link to="/">
+        <img id="title-logo" src={MainImage.title} alt="" />
+      </Link>
       <Link to="/menu1" className="menu-a">
         작전 생성
       </Link>
