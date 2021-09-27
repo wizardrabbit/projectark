@@ -9,7 +9,7 @@ const Main = () => (
     <div id="content-deco-1" />
     <div id="content-deco-2" />
     <div id="content">
-      <Switch>
+      <Switch id="content">
         <Route exact path="/menu1">
           <Menu1 />
         </Route>

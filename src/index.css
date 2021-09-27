@@ -136,7 +136,7 @@ header {
   display: inline-block;
   background-color: var(--white-line-color);
   border-radius: 20px;
-  height: 500px;
+  height: 514px;
   margin-right: 2px;
 }
 
@@ -150,11 +150,12 @@ header {
 
 #content {
   display: inline-block;
-  width: 1150px;
+  width: 1130px;
   height: 500px;
   background-color: var(--black-bg-color);
   border: 2px solid var(--white-line-color);
   border-radius: 20px;
+  padding: 5px 15px 5px 15px;
 }
 
 /* 푸터 설정 */
