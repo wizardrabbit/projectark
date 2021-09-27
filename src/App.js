@@ -1,30 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import MainImage from './images/index.js';
-import {Header, Blank, Main, Wrapper, Footer} from './components/menu.js';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Footer from './components/footer';
+import Header from './components/header';
+import Main from './components/main';
 
-function App() {
-  return (
-    <Router>
-    	<Switch>
-        <Route path="/" component={Page1} />
-      </Switch>
-    </Router>
-  );
-}
+const App = () => (
+  <Router>
+    <div id="wrapper">
+      <Header />
+      <Main />
+    </div>
+    <Footer />
+  </Router>
+);
 
 export default App;
-
-function Page1() {
-  return (
-    <>
-      <Wrapper>
-        <Header />
-        <Main />
-      </Wrapper>
-      <Footer />
-    </>
-  );
-}
 
 // 이곳에서 어떤 내용이 앱에 들어가 출력될지가 결정됩니다.

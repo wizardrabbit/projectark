@@ -1,10 +1,11 @@
+/*eslint-env node*/
 const MainImage = {
-  logo: require("./icon_application.png").default,
-  title: require("./icon_ARK.png").default,
-  donkey: require("./icon_donkey.png").default,
-  minase: require("./icon_minaselogo.png").default,
-  bg: require("./img_background.png").default
-}
+  logo: require('./icon_application.png').default,
+  title: require('./icon_ARK.png').default,
+  donkey: require('./icon_donkey.png').default,
+  minase: require('./icon_minaselogo.png').default,
+  bg: require('./img_background.png').default,
+};
 
 export default MainImage;
 
