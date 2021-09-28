@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "SDGothicNeoH";
+  font-display: fallback;
+
+  src: url("./SDGothicNeoH.woff") format("woff"), url("./SDGothicNeoH.ttf") format("truetype");
+
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SDGothicNeoM";
+  font-display: fallback;
+
+  src: url("./SDGothicNeoM.woff") format("woff"), url("./SDGothicNeoM.ttf") format("truetype");
+
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SDGothicNeoT";
+  font-display: fallback;
+
+  src: url("./SDGothicNeoT.woff") format("woff"), url("./SDGothicNeoT.ttf") format("truetype");
+
+  font-weight: 400;
+  font-style: normal;
+}
