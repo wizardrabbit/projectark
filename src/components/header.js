@@ -7,16 +7,16 @@ const Header = () => (
       <Link to="/">
         <img id="title-logo" src={MainImage.title} alt="" />
       </Link>
-      <Link to="/menu1" className="menu-a">
+      <Link to="/create" className="menu-a">
         작전 생성
       </Link>
-      <Link to="/menu2" className="menu-a">
+      <Link to="/record" className="menu-a">
         작전 기록
       </Link>
-      <Link to="/menu3" className="menu-a">
+      <Link to="/developers" className="menu-a">
         개발자들
       </Link>
-      <Link to="/menu4" className="menu-a">
+      <Link to="/guide" className="menu-a">
         사용 가이드
       </Link>
     </div>
