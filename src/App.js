@@ -6,7 +6,7 @@ import Main from './components/main';
 
 const App = () => (
   <Router>
-    <div id="wrapper">
+    <div className="wrapper">
       <Header />
       <Main />
     </div>

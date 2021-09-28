@@ -3,9 +3,9 @@ import MainImage from '../images/index.js';
 
 const Header = () => (
   <header>
-    <div id="header-menu">
+    <div className="header-menu">
       <Link to="/">
-        <img id="title-logo" src={MainImage.title} alt="" />
+        <img className="title-logo" src={MainImage.title} alt="" />
       </Link>
       <Link to="/create" className="menu-a">
         작전 생성

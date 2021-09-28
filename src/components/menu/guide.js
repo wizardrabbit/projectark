@@ -1,7 +1,11 @@
 const Guide = () => (
-  <div>
-    <span style={{ color: 'white' }}>사용 가이드</span>
-  </div>
+  <>
+    <div className="help-wrapper">
+      <div className="help-content">도움말을 적는 메뉴</div>
+      <div className="help-content"></div>
+      <div className="help-content"></div>
+    </div>
+  </>
 );
 
 export default Guide;

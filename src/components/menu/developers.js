@@ -1,7 +1,7 @@
 const Developers = () => (
-  <div>
-    <span style={{ color: 'white' }}>개발자들 메뉴</span>
-  </div>
+  <>
+    <div className="content dev">제작진 표시 메뉴</div>
+  </>
 );
 
 export default Developers;
