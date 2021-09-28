@@ -1,0 +1,13 @@
+[
+    {
+        "default": {
+            "id": 1, "name": "이름", "signImage": 1, "isGlobal": false, "operatorLimit": 12
+        },
+        "map": {
+            "mainStory": [2, 3, 5, 6, 8, 9],
+            "resource": [1],
+            "chip": [],
+            "event": []
+        }
+    }
+]
