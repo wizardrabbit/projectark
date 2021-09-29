@@ -3,13 +3,12 @@ const Record = () => (
     <div className="content-deco-1" />
     <div className="content-deco-2" />
     <div className="content record-left">
-      <div id="record-title">
-        AUTHORIZED ONLY
-        <br />
-        RESTRICTED INFORMATION
+      <div className="record-title">
+        <p>AUTHORIZED ONLY</p>
+        <p>RESTRICTED INFORMATION</p>
       </div>
-      <div id="record-author" />
-      <div id="record-date" />
+      <div className="record-author" />
+      <div className="record-date" />
       <div className="content record-info" />
       <div className="content record-restriction" />
       <div className="content record-score" />

@@ -292,7 +292,7 @@ footer {
   height: 500px;
 }
 
-#record-title {
+.record-title {
   grid-area: title;
   margin-left: 20px;
   font-family: "SDGothicNeoM", "Noto Sans KR";
@@ -301,11 +301,11 @@ footer {
   overflow: visible;
 }
 
-#record-author {
+.record-author {
   grid-area: author;
 }
 
-#record-date {
+.record-date {
   grid-area: date;
 }
 
