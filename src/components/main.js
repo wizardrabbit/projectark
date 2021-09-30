@@ -1,32 +1,42 @@
-import { Switch, Route } from 'react-router-dom';
-import { getURL } from '../utils/url';
+import _ from 'lodash';
+import { useGlobal } from '../hooks/global';
+
 import Menu from './menu';
 
-const Main = () => (
-  <div className="mid-wrapper">
-    <div className="content-wrapper">
-      <Switch id="content">
-        <Route exact path={getURL('create')}>
+const menuObj = {
+  '/': Menu.Home,
+  '/create': Menu.Create,
+  '/record': Menu.Record,
+  '/developers': Menu.Developers,
+  '/guide': Menu.Guide,
+};
+
+const Main = () => {
+  const [gState] = useGlobal();
+  const Component = _.get(menuObj, gState.get('menu'));
+
+  return (
+    <div className="mid-wrapper">
+      <div className="content-wrapper">
+        <Component />
+        {/* <Switch id="content">
+        <Route exact path={getBasename('create')}>
           <Menu.Create />
         </Route>
-        <Route exact path={getURL('record')}>
+        <Route exact path={getBasename('record')}>
           <Menu.Record />
         </Route>
-        <Route exact path={getURL('developers')}>
+        <Route exact path={getBasename('developers')}>
           <Menu.Developers />
         </Route>
-        <Route exact path={getURL('guide')}>
+        <Route exact path={getBasename('guide')}>
           <Menu.Guide />
         </Route>
-      </Switch>
+      </Switch> */}
+      </div>
+      <div className="layout-pusher" />
     </div>
-    <div className="layout-pusher" />
-  </div>
-);
+  );
+};
 
 export default Main;
-
-/*
-<div id="content-deco-1" />
-<div id="content-deco-2" />
-*/

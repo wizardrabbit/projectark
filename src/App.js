@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from './components/footer';
 import Header from './components/header';
 import Main from './components/main';
+import { GlobalProvider } from './hooks/global';
 
 const App = () => (
-  <Router>
+  <GlobalProvider>
     <div className="wrapper">
       <Header />
       <Main />
     </div>
     <Footer />
-  </Router>
+  </GlobalProvider>
 );
 
 export default App;

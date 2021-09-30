@@ -1,25 +1,31 @@
-import { Link } from 'react-router-dom';
+import { useGlobal } from '../hooks/global';
 import MainImage from '../images';
-import { getURL } from '../utils/url';
 
+const MenuButton = (props) => {
+  const [, setGState] = useGlobal();
+  return (
+    <a
+      className="menu-a"
+      onClick={() =>
+        setGState((prevState) => prevState.set('menu', `/${props.to.replaceAll('/', '')}`))
+      }
+      {...props}
+      aria-hidden
+    >
+      {props.children}
+    </a>
+  );
+};
 const Header = () => (
   <header>
     <div className="header-menu">
-      <Link to={getURL('/')}>
+      <MenuButton to="/">
         <img className="title-logo" src={MainImage.title} alt="" />
-      </Link>
-      <Link to={getURL('create')} className="menu-a">
-        작전 생성
-      </Link>
-      <Link to={getURL('record')} className="menu-a">
-        작전 기록
-      </Link>
-      <Link to={getURL('developers')} className="menu-a">
-        개발자들
-      </Link>
-      <Link to={getURL('guide')} className="menu-a">
-        사용 가이드
-      </Link>
+      </MenuButton>
+      <MenuButton to="/create">작전 생성</MenuButton>
+      <MenuButton to="/record">작전 기록</MenuButton>
+      <MenuButton to="/developers">개발자들</MenuButton>
+      <MenuButton to="/guide">사용 가이드</MenuButton>
     </div>
   </header>
 );

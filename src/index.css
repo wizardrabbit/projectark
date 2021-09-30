@@ -79,6 +79,7 @@ header {
 }
 
 .menu-a {
+  cursor: pointer;
   color: white;
   font-size: 30px;
   font-family: "Noto Sans KR", sans-serif;
