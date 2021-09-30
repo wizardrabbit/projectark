@@ -226,6 +226,29 @@ footer {
    height: 500px;
  }
 
+.content.create .tabs {
+  position: absolute;
+  transform: translateY(-48px);
+}
+.content.create .tabs .tab-item {
+  background-color: gray;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 4px 16px;
+  margin-right: 3px;
+  transition: 0.3s;
+  border-radius: 2px 12px 2px 2px;
+  color: lightgray;
+  font-size: 16px;
+}
+.content.create .tabs .tab-item.selected {
+  background-color: salmon;
+  color: white;
+}
+
  .content.dev {
    width: 900px;
    height: 500px;
@@ -331,4 +354,52 @@ footer {
   margin-bottom: 20px;
   background-color: black;
   box-shadow: 0px 0px 20px rgb(150, 150, 150, 0.3);
+}
+
+
+/* 각종 부속 CSS */
+.d_ib {
+  display: inline-block;
+}
+.d_a {
+  display: absolute;
+}
+.w_30 {
+  width: 30%;
+}
+.w_50 {
+  width: 50%;
+}
+.w_100 {
+  width: 100%;
+}
+.h_100 {
+  height: 100%;
+}
+.v_top {
+  vertical-align: top;
+}
+.v_middle {
+  vertical-align: middle;
+}
+.t_center {
+  text-align: center;
+}
+.p_1 {
+  padding: 3px;
+}
+.p_2 {
+  padding: 5px;
+}
+.m_1 {
+  margin: 3px;
+}
+.m_2 {
+  margin: 5px;
+}
+.f_right {
+  float: right;
+}
+.c_pointer {
+  cursor: pointer;
 }

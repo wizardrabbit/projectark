@@ -19,20 +19,6 @@ const Main = () => {
     <div className="mid-wrapper">
       <div className="content-wrapper">
         <Component />
-        {/* <Switch id="content">
-        <Route exact path={getBasename('create')}>
-          <Menu.Create />
-        </Route>
-        <Route exact path={getBasename('record')}>
-          <Menu.Record />
-        </Route>
-        <Route exact path={getBasename('developers')}>
-          <Menu.Developers />
-        </Route>
-        <Route exact path={getBasename('guide')}>
-          <Menu.Guide />
-        </Route>
-      </Switch> */}
       </div>
       <div className="layout-pusher" />
     </div>
