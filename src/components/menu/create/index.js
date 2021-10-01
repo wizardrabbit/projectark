@@ -4,7 +4,18 @@ import { fromJS } from 'immutable';
 import Tabs from './tabs';
 import GenerateButtonBox from './generate-button-box';
 
-const initDefault = { name: '', numOfOpers: 0, isGlobal: false };
+const initDefault = {
+  name: '',
+  operatorLimit: 0,
+  isGlobal: false,
+  map: {
+    mainStory: [],
+    resource: [],
+    chip: [],
+    event: [],
+  },
+  title: '',
+};
 const initRestrict = {};
 const initAdditional = {};
 const Create = () => {
@@ -41,7 +52,7 @@ const Create = () => {
             {selected === 3 && <Tabs.Additional setting={setting} setSetting={setSetting} />}
           </div>
           <div style={{ width: '30%' }}>
-            <GenerateButtonBox />
+            <GenerateButtonBox setting={setting} setSetting={setSetting} />
           </div>
         </div>
         <h3>디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>

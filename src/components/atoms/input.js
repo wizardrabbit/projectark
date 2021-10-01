@@ -6,13 +6,72 @@ export const InputSlider = (props) => (
     <input type="range" {...props} />
   </StyledSlider>
 );
-export const InputCheckbox = (props) => (
-  <StyledCheckbox>
+export const InputTogglebox = (props) => (
+  <StyledTogglebox>
     <input type="checkbox" {...props} />
     <span className="slider round" />
+  </StyledTogglebox>
+);
+export const InputCheckbox = (props) => (
+  <StyledCheckbox>
+    {props.title}
+    <input type="checkbox" {...props} />
+    <span />
   </StyledCheckbox>
 );
+const StyledCheckbox = styled.label`
+  padding: 1px 20px 0px 22px;
+  margin: 5px 0px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 10pt;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
+  :hover input ~ span {
+    background-color: #ccc;
+  }
+
+  input:checked ~ span:after {
+    display: block;
+  }
+  input:checked ~ span {
+    background-color: #2196f3;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  span {
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  span:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+`;
 const StyledText = styled.input`
   border: 1px solid #ddd;
   border-radius: 2px;
@@ -37,7 +96,7 @@ const StyledSlider = styled.div`
   }
 
   input:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1;
   }
 
   input::-webkit-slider-thumb {
@@ -46,7 +105,7 @@ const StyledSlider = styled.div`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04aa6d;
+    background: #2196f3;
     cursor: pointer;
   }
 
@@ -54,11 +113,11 @@ const StyledSlider = styled.div`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04aa6d;
+    background: #2196f3;
     cursor: pointer;
   }
 `;
-const StyledCheckbox = styled.label`
+const StyledTogglebox = styled.label`
   position: relative;
   display: inline-block;
   width: 60px;

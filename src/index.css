@@ -256,7 +256,7 @@ footer {
   font-size: 16px;
 }
 .content.create .tabs .tab-item.selected {
-  background-color: salmon;
+  background-color: orange;
   color: white;
 }
 
@@ -479,6 +479,12 @@ footer {
 .p_2 {
   padding: 5px;
 }
+.p_3 {
+  padding: 10px;
+}
+.p_4 {
+  padding: 20px;
+}
 .m_1 {
   margin: 3px;
 }
@@ -517,4 +523,7 @@ footer {
 }
 .lh_100 {
   line-height: 100%;
+}
+.border {
+  border: 1px solid var(--white-line-color);
 }
