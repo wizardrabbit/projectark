@@ -23,6 +23,10 @@ a {
   color: inherit;
 }
 
+input:focus {
+  outline: none;
+}
+
 #extra {
   position: fixed;
   background-image: url("images/img_background.png");
@@ -428,16 +432,61 @@ footer {
 }
 
 /* 도움말 CSS */
-.help-content {
-  width: 960px;
-  height: 550px;
+.help-box {
+  position: relative;
+  width: 1000px;
+  height: 562.5px;
   color: white;
-  padding: 20px;
-  margin-bottom: 20px;
   background-color: black;
   box-shadow: 0px 0px 20px rgb(150, 150, 150, 0.3);
 }
 
+.image-stage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.image-slide {
+  display: flex;
+  width: 800%;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.image-slide img {
+  width: 1000px;
+  height: 562.5px;
+}
+
+.arrow_left {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateX(-100%) translateY(-50%);
+  animation: buttonLeftMove 2.5s infinite;
+}
+
+.arrow_right {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateX(100%) translateY(-50%);
+  animation: buttonRightMove 2.5s infinite;
+}
+
+@keyframes buttonLeftMove {
+  0% { left: -20px; }
+  50% { left: -28px; }
+  100% { left: -20px; }
+}
+
+@keyframes buttonRightMove {
+  0% { right: -20px; }
+  50% { right: -28px; }
+  100% { right: -20px; }
+}
 
 /* 각종 부속 CSS */
 .d_ib {

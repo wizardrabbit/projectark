@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import warninglogo from '../../images/icons/icon_ui/icon_ui_warning-bg.png';
 
 const Record = () => (
@@ -39,10 +40,29 @@ const Record = () => (
         <div className="data-record-score">■■■</div>
       </div>
     </div>
-    <div className="content record-right">
-      <div className="title">작전 보고서 목록</div>
-    </div>
+    <RecordMenu />
   </>
 );
+
+const RecordMenu = () => (
+  <div className="content record-right">
+    <div className="title">작전 보고서 목록</div>
+    <div
+      className="data-record-list"
+      style={{ width: '100%', height: '450px', backgroundColor: 'rgb(0, 0, 255, 0.2)' }}
+    ></div>
+  </div>
+);
+/*const RecordMenu = () => {
+  return (
+    <div className="content record-right">
+      <div className="title">작전 보고서 목록</div>
+      <div
+        className="data-record-list"
+        style={{ width: '100%', height: '450px', backgroundColor: 'rgb(0, 0, 255, 0.2)' }}
+      ></div>
+    </div>
+  );
+};*/
 
 export default Record;
