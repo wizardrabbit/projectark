@@ -361,6 +361,9 @@ footer {
 .d_ib {
   display: inline-block;
 }
+.d_if {
+  display: inline-flex;
+}
 .d_a {
   display: absolute;
 }
@@ -382,6 +385,9 @@ footer {
 .v_middle {
   vertical-align: middle;
 }
+.v_sub {
+  vertical-align: sub;
+}
 .t_center {
   text-align: center;
 }
@@ -397,9 +403,36 @@ footer {
 .m_2 {
   margin: 5px;
 }
+.mt_1 {
+  margin-top: 3px;
+}
+.mt_2 {
+  margin-top: 5px;
+}
+.mt_3 {
+  margin-top: 10px;
+}
+.mt_4 {
+  margin-top: 20px;
+}
+.mb_1 {
+  margin-bottom: 3px;
+}
+.mb_2 {
+  margin-bottom: 5px;
+}
+.mb_3 {
+  margin-bottom: 10px;
+}
+.mb_4 {
+  margin-bottom: 20px;
+}
 .f_right {
   float: right;
 }
 .c_pointer {
   cursor: pointer;
+}
+.lh_100 {
+  line-height: 100%;
 }

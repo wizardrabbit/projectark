@@ -1,9 +1,17 @@
 import React from 'react';
 import cx from 'classnames';
+import { fromJS } from 'immutable';
 import Tabs from './tabs';
+import GenerateButtonBox from './generate-button-box';
 
+const initDefault = { name: '', numOfOpers: 0, isGlobal: false };
+const initRestrict = {};
+const initAdditional = {};
 const Create = () => {
   const [selected, setSelected] = React.useState(1);
+  const [setting, setSetting] = React.useState(
+    fromJS({ default: initDefault, restrict: initRestrict, additional: initAdditional }),
+  );
 
   const TabButton = (props) => {
     const { index, title } = props;
@@ -26,11 +34,18 @@ const Create = () => {
           <TabButton index={2} title="출격 오퍼레이터 지정/금지" />
           <TabButton index={3} title="추가 제약" />
         </div>
-        <div className="h-100">
-          {selected === 1 && <Tabs.Default />}
-          {selected === 2 && <Tabs.Restrict />}
-          {selected === 3 && <Tabs.Additional />}
+        <div className="d_if h_100 w_100">
+          <div style={{ width: '70%' }}>
+            {selected === 1 && <Tabs.Default setting={setting} setSetting={setSetting} />}
+            {selected === 2 && <Tabs.Restrict setting={setting} setSetting={setSetting} />}
+            {selected === 3 && <Tabs.Additional setting={setting} setSetting={setSetting} />}
+          </div>
+          <div style={{ width: '30%' }}>
+            <GenerateButtonBox />
+          </div>
         </div>
+        <h3>디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>
+        <h3>{JSON.stringify(setting.toJS())}</h3>
       </div>
     </>
   );

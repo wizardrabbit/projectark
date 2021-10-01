@@ -1,4 +1,4 @@
-const Question = (props) => (
+const QuestionMark = (props) => (
   <span
     style={{
       position: 'absolute',
@@ -6,7 +6,7 @@ const Question = (props) => (
       backgroundColor: 'white',
       color: 'black',
       padding: '0px 2px',
-      transform: 'translate(50%, 50%)',
+      transform: `translate(${props.move_right || 10}px, ${props.move_down || 0}px)`,
       cursor: 'pointer',
     }}
     {...props}
@@ -15,4 +15,4 @@ const Question = (props) => (
   </span>
 );
 
-export default Question;
+export default QuestionMark;
