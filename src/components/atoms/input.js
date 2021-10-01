@@ -30,6 +30,7 @@ const StyledCheckbox = styled.label`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  line-height: 100%;
 
   :hover input ~ span {
     background-color: #ccc;
@@ -50,10 +51,10 @@ const StyledCheckbox = styled.label`
   }
   span {
     position: absolute;
-    top: 3px;
+    top: -1px;
     left: 0px;
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     background-color: #eee;
     border-radius: 4px;
   }
@@ -61,10 +62,10 @@ const StyledCheckbox = styled.label`
     content: '';
     position: absolute;
     display: none;
-    left: 5px;
+    left: 4px;
     top: 1px;
     width: 3px;
-    height: 8px;
+    height: 7px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);

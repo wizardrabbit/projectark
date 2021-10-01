@@ -7,7 +7,6 @@ import QuestionMark from '../../../atoms/question-mark';
 import { InputTogglebox, InputSlider, InputText, InputCheckbox } from '../../../atoms/input';
 import mainStoryMap from '../../../../static/database/combat/map/mainStory.json';
 import resourceMap from '../../../../static/database/combat/map/resource.json';
-import chipMap from '../../../../static/database/combat/map/chip.json';
 import eventMap from '../../../../static/database/combat/map/event.json';
 
 const BoxItem = (props) => (
@@ -27,7 +26,6 @@ const BoxItem = (props) => (
 
 const Default = (props) => {
   const { setting, setSetting } = props;
-  const [accordion, setAccordion] = React.useState(0);
 
   const handleSetting = React.useCallback(
     ({ target }) => {
@@ -40,24 +38,23 @@ const Default = (props) => {
     [setSetting],
   );
 
-  const AccordionItem = React.useCallback(
-    (props) => {
-      const { index, title, children } = props;
-      return (
-        <>
-          <button
-            className={cx({ active: accordion === index })}
-            onClick={() => (accordion === index ? setAccordion(0) : setAccordion(index))}
-          >
-            {title}
-            <span>⚙</span>
-          </button>
-          <div className={cx([accordion !== index && 'panel'])}>{children}</div>
-        </>
-      );
-    },
-    [accordion],
-  );
+  const AccordionItem = React.useCallback((props) => {
+    const { title, children } = props;
+    return (
+      <div className="mb_2">
+        <button
+          onClick={(e) => {
+            e.target.classList.toggle('active');
+            e.target.nextSibling.classList.toggle('panel');
+          }}
+        >
+          {title}
+          <span>⚙</span>
+        </button>
+        <div className="panel">{children}</div>
+      </div>
+    );
+  }, []);
 
   const BoxThumbnail = React.useCallback(
     (props) => {
@@ -176,7 +173,6 @@ const Default = (props) => {
                 {[
                   { id: 'mainStory', title: '메인 스토리', maps: mainStoryMap },
                   { id: 'resource', title: '물자 비축', maps: resourceMap },
-                  { id: 'chip', title: '칩 탐색', maps: chipMap },
                   { id: 'event', title: '이벤트', maps: eventMap },
                 ].map((item, index) => (
                   <div key={item.id}>
@@ -201,7 +197,7 @@ const Default = (props) => {
                         />
                       ))}
                     </AccordionItem>
-                    {index < 3 && <hr />}
+                    {index < 2 && <hr />}
                   </div>
                 ))}
               </StyledAccordion>
