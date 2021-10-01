@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Box from '../../atoms/box';
 import { InputText } from '../../atoms/input';
 const GenerateButtonBox = (props) => {
-  const { setting, setSetting } = props;
+  const { setting, setSetting, resetSetting } = props;
   const handleSetting = React.useCallback(
     ({ target }) => {
       const { id, value, type, checked } = target;
@@ -34,8 +34,9 @@ const GenerateButtonBox = (props) => {
         onClick={() => {
           const records = JSON.parse(localStorage.getItem('records') || JSON.stringify([]));
           records.push(setting.toJS());
-          console.log(records);
           localStorage.setItem('records', JSON.stringify(records));
+          alert(`작전 기록 완료.\r\n${JSON.stringify(setting.toJS())}`);
+          resetSetting();
         }}
         style={{ height: '320px' }}
       >

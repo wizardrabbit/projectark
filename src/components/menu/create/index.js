@@ -4,25 +4,28 @@ import { fromJS } from 'immutable';
 import Tabs from './tabs';
 import GenerateButtonBox from './generate-button-box';
 
-const initDefault = {
-  name: '',
-  operatorLimit: 0,
-  isGlobal: false,
-  map: {
-    mainStory: [],
-    resource: [],
-    chip: [],
-    event: [],
+const initSetting = {
+  default: {
+    name: '',
+    operatorLimit: 0,
+    isGlobal: false,
+    map: {
+      mainStory: [],
+      resource: [],
+      chip: [],
+      event: [],
+    },
+    title: '',
   },
-  title: '',
+  restrict: {},
+  additional: {},
 };
-const initRestrict = {};
-const initAdditional = {};
+
 const Create = () => {
   const [selected, setSelected] = React.useState(1);
-  const [setting, setSetting] = React.useState(
-    fromJS({ default: initDefault, restrict: initRestrict, additional: initAdditional }),
-  );
+  const [setting, setSetting] = React.useState(fromJS(initSetting));
+
+  const resetSetting = () => setSetting(fromJS(initSetting));
 
   const TabButton = (props) => {
     const { index, title } = props;
@@ -52,7 +55,11 @@ const Create = () => {
             {selected === 3 && <Tabs.Additional setting={setting} setSetting={setSetting} />}
           </div>
           <div style={{ width: '30%' }}>
-            <GenerateButtonBox setting={setting} setSetting={setSetting} />
+            <GenerateButtonBox
+              setting={setting}
+              setSetting={setSetting}
+              resetSetting={resetSetting}
+            />
           </div>
         </div>
         <h3>디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>
