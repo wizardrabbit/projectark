@@ -175,27 +175,35 @@ const Default = (props) => {
                   { id: 'resource', title: '물자 비축', maps: resourceMap },
                   { id: 'event', title: '이벤트', maps: eventMap },
                 ].map((item, index) => (
-                  <div key={item.id}>
+                  <div key={`${item.id}_${item.name}`}>
                     <AccordionItem key={item.id} title={item.title} index={index + 1}>
-                      {item.maps.map((map) => (
-                        <InputCheckbox
-                          key={map.id}
-                          id={`default.map.${item.id}`}
-                          title={map.name}
-                          checked={setting.getIn(['default', 'map', item.id]).includes(map.id)}
-                          onChange={() =>
-                            setSetting((prevState) => {
-                              const getMaps = prevState.getIn(['default', 'map', item.id]);
-                              return prevState.setIn(
-                                ['default', 'map', item.id],
-                                getMaps.includes(map.id)
-                                  ? getMaps.filter((id) => id != map.id)
-                                  : getMaps.push(map.id),
-                              );
-                            })
-                          }
-                        />
-                      ))}
+                      {item.maps.map((map) => {
+                        console.log(map);
+                        return map.id == -1 ? (
+                          <div className="t_center mt_2">
+                            <span>{map.name}</span>
+                            <hr className="w_50" />
+                          </div>
+                        ) : (
+                          <InputCheckbox
+                            key={map.id}
+                            id={`default.map.${item.id}`}
+                            title={map.name}
+                            checked={setting.getIn(['default', 'map', item.id]).includes(map.id)}
+                            onChange={() =>
+                              setSetting((prevState) => {
+                                const getMaps = prevState.getIn(['default', 'map', item.id]);
+                                return prevState.setIn(
+                                  ['default', 'map', item.id],
+                                  getMaps.includes(map.id)
+                                    ? getMaps.filter((id) => id != map.id)
+                                    : getMaps.push(map.id),
+                                );
+                              })
+                            }
+                          />
+                        );
+                      })}
                     </AccordionItem>
                     {index < 2 && <hr />}
                   </div>

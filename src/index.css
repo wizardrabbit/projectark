@@ -472,6 +472,7 @@ footer {
 }
 .t_center {
   text-align: center;
+  text-align: -webkit-center;
 }
 .p_1 {
   padding: 3px;
