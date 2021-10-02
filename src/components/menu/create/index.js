@@ -7,7 +7,7 @@ import GenerateButtonBox from './generate-button-box';
 const initSetting = {
   default: {
     name: '',
-    operatorLimit: 0,
+    operatorLimit: 1,
     isGlobal: false,
     map: {
       mainStory: [],
@@ -24,8 +24,14 @@ const initSetting = {
 const Create = () => {
   const [selected, setSelected] = React.useState(1);
   const [setting, setSetting] = React.useState(fromJS(initSetting));
+  const [temp, setTemp] = React.useState(JSON.parse(localStorage.getItem('records')));
 
   const resetSetting = () => setSetting(fromJS(initSetting));
+
+  const removeAllRecords = React.useCallback(() => {
+    localStorage.removeItem('records');
+    setTemp([]);
+  }, []);
 
   const TabButton = (props) => {
     const { index, title } = props;
@@ -59,11 +65,24 @@ const Create = () => {
               setting={setting}
               setSetting={setSetting}
               resetSetting={resetSetting}
+              setTemp={setTemp}
             />
           </div>
         </div>
-        <h3>디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>
-        <h3>{JSON.stringify(setting.toJS())}</h3>
+        <h3 className="mt_4">디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>
+        <span>{JSON.stringify(setting.toJS())}</span>
+        <h3 className="mt_4">현재 로컬스토리지에 담긴 내용</h3>
+        {temp.map((item, index) => (
+          <div key={index}>
+            <span>{`${index}: ${JSON.stringify(item)}`}</span>
+          </div>
+        ))}
+        <button
+          onClick={removeAllRecords}
+          style={{ border: 0, borderRadius: '10px', padding: '5px 10px' }}
+        >
+          로컬스토리지 전부 삭제
+        </button>
       </div>
     </>
   );

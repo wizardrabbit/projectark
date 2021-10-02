@@ -2,12 +2,12 @@ import cx from 'classnames';
 import React from 'react';
 import styled from 'styled-components';
 import Box from '../../../atoms/box';
-import DonkeyImg from '../../../../images/icon_donkey.png';
 import QuestionMark from '../../../atoms/question-mark';
 import { InputTogglebox, InputSlider, InputText, InputCheckbox } from '../../../atoms/input';
 import mainStoryMap from '../../../../static/database/combat/map/mainStory.json';
 import resourceMap from '../../../../static/database/combat/map/resource.json';
 import eventMap from '../../../../static/database/combat/map/event.json';
+import { zeroFill } from '../../../../utils/string';
 
 const BoxItem = (props) => (
   <div
@@ -137,22 +137,16 @@ const Default = (props) => {
             />
           </BoxItem>
           <BoxItem center>
-            <img src={DonkeyImg} alt="" width="60px" className="m_1" />
-            <span
-              style={{
-                position: 'absolute',
-                backgroundColor: 'black',
-                color: 'white',
-                borderRadius: '100%',
-                fontWeight: 'bold',
-                fontSize: '18pt',
-                width: '25px',
-                padding: '0px 6px 3px 6px',
-                transform: 'translate(-29px, 34px)',
-              }}
-            >
-              {setting.getIn(['default', 'operatorLimit']) || 0}
-            </span>
+            <img
+              src={
+                require(`../../../../images/icons/icon_disadvantage/icon_disadvantage_${zeroFill(
+                  setting.getIn(['default', 'operatorLimit']),
+                )}operater.png`).default
+              }
+              alt=""
+              width="60px"
+              className="m_1"
+            />
             <QuestionMark
               move_right={20}
               move_down={22}
@@ -177,9 +171,8 @@ const Default = (props) => {
                 ].map((item, index) => (
                   <div key={`${item.id}_${item.name}`}>
                     <AccordionItem key={item.id} title={item.title} index={index + 1}>
-                      {item.maps.map((map) => {
-                        console.log(map);
-                        return map.id == -1 ? (
+                      {item.maps.map((map) =>
+                        map.id == -1 ? (
                           <div className="t_center mt_2">
                             <span>{map.name}</span>
                             <hr className="w_50" />
@@ -202,8 +195,8 @@ const Default = (props) => {
                               })
                             }
                           />
-                        );
-                      })}
+                        ),
+                      )}
                     </AccordionItem>
                     {index < 2 && <hr />}
                   </div>

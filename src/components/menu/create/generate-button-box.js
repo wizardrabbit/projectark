@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Box from '../../atoms/box';
 import { InputText } from '../../atoms/input';
 const GenerateButtonBox = (props) => {
-  const { setting, setSetting, resetSetting } = props;
+  const { setting, setSetting, resetSetting, setTemp } = props;
   const handleSetting = React.useCallback(
     ({ target }) => {
       const { id, value, type, checked } = target;
@@ -35,8 +35,8 @@ const GenerateButtonBox = (props) => {
           const records = JSON.parse(localStorage.getItem('records') || JSON.stringify([]));
           records.push(setting.toJS());
           localStorage.setItem('records', JSON.stringify(records));
-          alert(`작전 기록 완료.\r\n${JSON.stringify(setting.toJS())}`);
           resetSetting();
+          setTemp(records);
         }}
         style={{ height: '320px' }}
       >
@@ -69,10 +69,12 @@ const StyledGenerate = styled.div`
     font-weight: bold;
     line-height: 100%;
   }
-  :hover button,
-  :hover img {
+  :hover button {
     background-color: orange;
-    border-color: darkgray;
+  }
+  :hover img,
+  :hover button {
+    border-color: orange;
   }
 `;
 export default GenerateButtonBox;
