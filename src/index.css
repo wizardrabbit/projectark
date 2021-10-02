@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   --white-line-color: rgb(255, 255, 255, 0.2);
+  --white-radio-color: rgb(255, 255, 255, 0.5);
   --white-line-color-ft: rgb(255, 255, 255, 0.16);
   --black-bg-color: rgb(0, 0, 0, 0.4);
 }
@@ -398,12 +399,12 @@ footer {
 }
 
 .warning-image {
-  width: 200px;
-  heifht: 200px;
+  width: 150px;
+  height: 150px;
 }
 
 .warning-text {
-  font-size: 20px;
+  font-size: 16px;
   font-family: "SDGothicNeoT", "Noto Sans KR", sans-serif;
 }
 
@@ -411,8 +412,8 @@ footer {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 400px;
-  height: 300px;
+  width: 280px;
+  height: 250px;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -424,11 +425,48 @@ footer {
 
 .data-record-score {
   width: 100%;
-  height: 80px;
-  font-size: 70px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 60px;
+  font-size: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
+}
+
+.data-record-list {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  height: 435px;
+  overflow: auto;
+}
+
+.data-record-list::-webkit-scrollbar { width: 8px; }
+
+.data-record-list div {
+  position: relative;
+  font-family: "SDGothicNeoM", "Noto Sans KR", sans-serif;
+  border: 2px solid var(--white-line-color);
+  padding: 3px;
+  font-size: 20px;
+  cursor: pointer;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.data-record-list div:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.3s;
+  background: linear-gradient(to right, var(--white-line-color) 40%, transparent 100%);
+}
+
+.data-record-list div:hover:before {
+  opacity: 1;
 }
 
 /* 도움말 CSS */
@@ -438,7 +476,7 @@ footer {
   height: 562.5px;
   color: white;
   background-color: black;
-  box-shadow: 0px 0px 20px rgb(150, 150, 150, 0.3);
+  box-shadow: 0px 0px 70px rgb(150, 150, 150, 0.5);
 }
 
 .image-stage {
@@ -486,6 +524,36 @@ footer {
   0% { right: -20px; }
   50% { right: -28px; }
   100% { right: -20px; }
+}
+
+.slide-radio-menu {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  transform: translateX(-50%);
+  top: 15px;
+  left: 50%;
+  width: 180px;
+}
+
+.slide-radio-button {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--white-radio-color);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.slide-radio-button:hover {
+  border: 2px solid white;
+  box-shadow: 0px 0px 10px white;
+}
+
+.slide-radio-button.activated {
+  background-color: white;
+  box-shadow: 0px 0px 10px white;
 }
 
 /* 각종 부속 CSS */
