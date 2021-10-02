@@ -24,7 +24,7 @@ const initSetting = {
 const Create = () => {
   const [selected, setSelected] = React.useState(1);
   const [setting, setSetting] = React.useState(fromJS(initSetting));
-  const [temp, setTemp] = React.useState(JSON.parse(localStorage.getItem('records')));
+  const [temp, setTemp] = React.useState(JSON.parse(localStorage.getItem('records')) || []);
 
   const resetSetting = () => setSetting(fromJS(initSetting));
 

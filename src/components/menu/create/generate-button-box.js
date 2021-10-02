@@ -16,8 +16,7 @@ const GenerateButtonBox = (props) => {
   );
   return (
     <Styled>
-      <Box height="150px" width="88%" className="t_center">
-        <h1>작전명</h1>
+      <Box height="150px" width="88%" className="t_center" title="작전명">
         <InputText
           id="default.title"
           value={setting.getIn(['default', 'title'])}

@@ -7,7 +7,6 @@ import { InputTogglebox, InputSlider, InputText, InputCheckbox } from '../../../
 import mainStoryMap from '../../../../static/database/combat/map/mainStory.json';
 import resourceMap from '../../../../static/database/combat/map/resource.json';
 import eventMap from '../../../../static/database/combat/map/event.json';
-import { zeroFill } from '../../../../utils/string';
 
 const BoxItem = (props) => (
   <div
@@ -79,7 +78,7 @@ const Default = (props) => {
   );
 
   return (
-    <div className="d_if">
+    <div className="d_if w_100">
       <div style={{ height: '470px', width: '60%', paddingRight: '30px' }}>
         <Box height="26%" width="100%" className="mb_4 d_if">
           <BoxItem title="당신의 이름은?">
@@ -139,9 +138,9 @@ const Default = (props) => {
           <BoxItem center>
             <img
               src={
-                require(`../../../../images/icons/icon_disadvantage/icon_disadvantage_${zeroFill(
-                  setting.getIn(['default', 'operatorLimit']),
-                )}operater.png`).default
+                require(`../../../../images/icons/icon_disadvantage/icon_disadvantage_${`0${setting.getIn(
+                  ['default', 'operatorLimit'],
+                )}`.slice(-2)}operater.png`).default
               }
               alt=""
               width="60px"
@@ -158,10 +157,9 @@ const Default = (props) => {
         </Box>
       </div>
       <div style={{ height: '465px', width: '40%', padding: '0px 30px' }}>
-        <Box height="100%" width="100%">
+        <Box height="100%" width="100%" title="작전 설정">
           <BoxItem long>
             <div className="h_100 w_100 t_center">
-              <h1>작전 설정</h1>
               <QuestionMark move_right={115} move_down={-40} />
               <StyledAccordion>
                 {[

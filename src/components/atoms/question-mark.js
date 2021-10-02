@@ -1,13 +1,15 @@
 const QuestionMark = (props) => (
   <span
     style={{
+      lineHeight: '100%',
       position: 'absolute',
       borderRadius: '100%',
       backgroundColor: 'white',
       color: 'black',
-      padding: '0px 2px',
+      padding: '4px 3px 0px 4px',
       transform: `translate(${props.move_right || 10}px, ${props.move_down || 0}px)`,
       cursor: 'pointer',
+      fontWeight: 'bold',
     }}
     {...props}
   >
