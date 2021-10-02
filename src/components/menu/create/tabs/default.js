@@ -156,7 +156,7 @@ const Default = (props) => {
           </BoxItem>
         </Box>
       </div>
-      <div style={{ height: '465px', width: '40%', padding: '0px 30px' }}>
+      <div style={{ height: '463px', width: '40%', padding: '0px 30px' }}>
         <Box height="100%" width="100%" title="작전 설정">
           <BoxItem long>
             <div className="h_100 w_100 t_center">
@@ -171,7 +171,7 @@ const Default = (props) => {
                     <AccordionItem key={item.id} title={item.title} index={index + 1}>
                       {item.maps.map((map) =>
                         map.id == -1 ? (
-                          <div className="t_center mt_2">
+                          <div key={map.name} className="t_center mt_2">
                             <span>{map.name}</span>
                             <hr className="w_50" />
                           </div>

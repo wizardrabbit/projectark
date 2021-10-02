@@ -29,6 +29,7 @@ const Create = () => {
   const resetSetting = () => setSetting(fromJS(initSetting));
 
   const removeAllRecords = React.useCallback(() => {
+    console.log(1);
     localStorage.removeItem('records');
     setTemp([]);
   }, []);
@@ -71,18 +72,29 @@ const Create = () => {
         </div>
         <h3 className="mt_4">디버깅 / 개발 편의를 위한 데이터 바인딩 상태 확인 ↓</h3>
         <span>{JSON.stringify(setting.toJS())}</span>
-        <h3 className="mt_4">현재 로컬스토리지에 담긴 내용</h3>
+        <hr className="mt_3" />
+        <h3 className="mt_3 mb_2">
+          현재 로컬스토리지에 담긴 내용&nbsp;&nbsp;&nbsp;
+          <button
+            onClick={removeAllRecords}
+            style={{
+              border: 0,
+              borderRadius: '10px',
+              padding: '5px 10px',
+              zIndex: 99999,
+              cursor: 'pointer',
+              lineHeight: '100%',
+            }}
+          >
+            로컬스토리지 전부 삭제
+          </button>
+        </h3>
+
         {temp.map((item, index) => (
           <div key={index}>
             <span>{`${index}: ${JSON.stringify(item)}`}</span>
           </div>
         ))}
-        <button
-          onClick={removeAllRecords}
-          style={{ border: 0, borderRadius: '10px', padding: '5px 10px' }}
-        >
-          로컬스토리지 전부 삭제
-        </button>
       </div>
     </>
   );

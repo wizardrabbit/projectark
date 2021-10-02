@@ -6,7 +6,7 @@ const Box = (props) => {
   const { height, width, title, children, className } = props;
   return (
     <StyledBox className={cx([className])} style={{ height, width }}>
-      <div className="t_center">
+      <div className="t_center mb_3">
         <h1>{title}</h1>
       </div>
       {children}
