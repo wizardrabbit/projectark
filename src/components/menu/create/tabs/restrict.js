@@ -81,104 +81,6 @@ const Restrict = (props) => {
     ),
     [operatorsMaster, setSetting, setting],
   );
-  const SearchOperator = React.useCallback(
-    () => (
-      <BoxItem long>
-        <QuestionMark move_down={-45} move_right={400} />
-        <StyledTextWithSearchMark>
-          <InputTextWithSearchMark
-            className="w_50"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <ButtonGroup
-            className="btn-group"
-            setValue={setMode}
-            value={mode}
-            items={[
-              { id: 'allowed', name: '지정 모드' },
-              { id: 'disallowed', name: '금지 모드' },
-            ]}
-          />
-        </StyledTextWithSearchMark>
-        <Box className="mt_4 " width="92%" height="75%">
-          <div className="t_center mb_2">
-            <ButtonWithOrder id="rarity" order={order} onClick={toggleOrder}>
-              등급순
-            </ButtonWithOrder>
-            <ButtonWithOrder id="cost" order={order} onClick={toggleOrder}>
-              코스트순
-            </ButtonWithOrder>
-            <ButtonWithOrder id="position_id" order={order} onClick={toggleOrder}>
-              직군순
-            </ButtonWithOrder>
-            <ButtonWithOrder id="name" order={order} onClick={toggleOrder}>
-              가나다순
-            </ButtonWithOrder>
-          </div>
-          <hr />
-          <div className="mt_3" style={{ height: '90%', overflowY: 'auto' }}>
-            {getExpectedOpers().map((operator_id) => (
-              <Operator
-                key={operator_id}
-                operator={operatorsMaster.find((operator) => operator.get('id') == operator_id)}
-                onClick={() => {
-                  setSetting((prevState) =>
-                    prevState.updateIn(['restrict', mode], (list) =>
-                      list.includes(operator_id) ? list : list.push(operator_id),
-                    ),
-                  );
-                }}
-              />
-            ))}
-          </div>
-        </Box>
-      </BoxItem>
-    ),
-    [getExpectedOpers, mode, operatorsMaster, order, search, setSetting],
-  );
-  const SearchRestrict = React.useCallback(
-    () => (
-      <BoxItem long>
-        <QuestionMark move_down={-45} move_right={400} />
-        <StyledTextWithSearchMark>
-          <InputTextWithSearchMark
-            className="w_50"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <ButtonGroup
-            className="btn-group"
-            setValue={setMode}
-            value={mode}
-            items={[
-              { id: 'allowed', name: '지정 모드' },
-              { id: 'disallowed', name: '금지 모드' },
-            ]}
-          />
-        </StyledTextWithSearchMark>
-        <Box className="mt_4 " width="92%" height="75%">
-          {restrictsMaster.map((restrict) => (
-            <RestrictObj
-              key={restrict.get('id')}
-              restrict={restrict}
-              getExpectedOpers={getExpectedOpers}
-              onClick={(operator_ids) => {
-                operator_ids.size > 0 &&
-                  setSetting((prevState) =>
-                    prevState.updateIn(['restrict', mode], (list) => {
-                      const result = new Set(list.concat(operator_ids));
-                      return result.toList();
-                    }),
-                  );
-              }}
-            />
-          ))}
-        </Box>
-      </BoxItem>
-    ),
-    [getExpectedOpers, mode, restrictsMaster, search, setSetting],
-  );
   return (
     <div className="d_if w_100">
       <div style={{ height: '463px', width: '60%', paddingRight: '30px' }}>
@@ -197,8 +99,100 @@ const Restrict = (props) => {
               제약 검색
             </button>
           </StyledSearchTab>
-          {searchTab === 'operator' && <SearchOperator />}
-          {searchTab === 'restrict' && <SearchRestrict />}
+          {searchTab === 'operator' && (
+            <BoxItem long>
+              <QuestionMark move_down={-45} move_right={400} />
+              <StyledTextWithSearchMark>
+                <InputTextWithSearchMark
+                  className="w_50"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <ButtonGroup
+                  className="btn-group"
+                  setValue={setMode}
+                  value={mode}
+                  items={[
+                    { id: 'allowed', name: '지정 모드' },
+                    { id: 'disallowed', name: '금지 모드' },
+                  ]}
+                />
+              </StyledTextWithSearchMark>
+              <Box className="mt_4 " width="92%" height="75%">
+                <div className="t_center mb_2">
+                  <ButtonWithOrder id="rarity" order={order} onClick={toggleOrder}>
+                    등급순
+                  </ButtonWithOrder>
+                  <ButtonWithOrder id="cost" order={order} onClick={toggleOrder}>
+                    코스트순
+                  </ButtonWithOrder>
+                  <ButtonWithOrder id="position_id" order={order} onClick={toggleOrder}>
+                    직군순
+                  </ButtonWithOrder>
+                  <ButtonWithOrder id="name" order={order} onClick={toggleOrder}>
+                    가나다순
+                  </ButtonWithOrder>
+                </div>
+                <hr />
+                <div className="mt_3" style={{ height: '90%', overflowY: 'auto' }}>
+                  {getExpectedOpers().map((operator_id) => (
+                    <Operator
+                      key={operator_id}
+                      operator={operatorsMaster.find(
+                        (operator) => operator.get('id') == operator_id,
+                      )}
+                      onClick={() => {
+                        setSetting((prevState) =>
+                          prevState.updateIn(['restrict', mode], (list) =>
+                            list.includes(operator_id) ? list : list.push(operator_id),
+                          ),
+                        );
+                      }}
+                    />
+                  ))}
+                </div>
+              </Box>
+            </BoxItem>
+          )}
+          {searchTab === 'restrict' && (
+            <BoxItem long>
+              <QuestionMark move_down={-45} move_right={400} />
+              <StyledTextWithSearchMark>
+                <InputTextWithSearchMark
+                  className="w_50"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <ButtonGroup
+                  className="btn-group"
+                  setValue={setMode}
+                  value={mode}
+                  items={[
+                    { id: 'allowed', name: '지정 모드' },
+                    { id: 'disallowed', name: '금지 모드' },
+                  ]}
+                />
+              </StyledTextWithSearchMark>
+              <Box className="mt_4 " width="92%" height="75%">
+                {restrictsMaster.map((restrict) => (
+                  <RestrictObj
+                    key={restrict.get('id')}
+                    restrict={restrict}
+                    getExpectedOpers={getExpectedOpers}
+                    onClick={(operator_ids) => {
+                      operator_ids.size > 0 &&
+                        setSetting((prevState) =>
+                          prevState.updateIn(['restrict', mode], (list) => {
+                            const result = new Set(list.concat(operator_ids));
+                            return result.toList();
+                          }),
+                        );
+                    }}
+                  />
+                ))}
+              </Box>
+            </BoxItem>
+          )}
         </Box>
       </div>
       <div style={{ height: '463px', width: '40%', padding: '0px 30px' }}>

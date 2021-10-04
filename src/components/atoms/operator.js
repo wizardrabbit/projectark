@@ -19,16 +19,19 @@ const Operator = (props) => {
           aria-hidden
         />
       </div>
-      <div>{operator.get('name')}</div>
+      <div className="name">{operator.get('name')}</div>
     </StyledOperator>
   );
 };
 
 const StyledOperator = styled.div`
-  width: 74px;
+  vertical-align: top;
+  width: 80px;
+  min-height: 80px;
+  max-height: 100px;
   padding: 5px;
   display: inline-block;
-  font-size: 7pt;
+  font-size: 10pt;
   cursor: pointer;
   border: 1px solid transparent;
   :hover {
@@ -49,6 +52,9 @@ const StyledOperator = styled.div`
   }
   img {
     width: 40px;
+  }
+  .name {
+    font-size: 11pt;
   }
 `;
 
