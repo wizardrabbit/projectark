@@ -34,6 +34,13 @@ const Restrict = (props) => {
     setOperatorsMaster(order.get('desc') ? result : result.reverse());
   }, [order]);
 
+  const getRestricts = React.useCallback(
+    () =>
+      search
+        ? restrictsMaster.filter((restrict) => restrict.get('name').includes(search))
+        : restrictsMaster,
+    [restrictsMaster, search],
+  );
   const getExpectedOpers = React.useCallback(() => {
     const expectedOpers = operatorsMaster
       .filter(
@@ -107,6 +114,7 @@ const Restrict = (props) => {
                   className="w_50"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  reset={() => setSearch('')}
                 />
                 <ButtonGroup
                   className="btn-group"
@@ -162,6 +170,7 @@ const Restrict = (props) => {
                   className="w_50"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  reset={() => setSearch('')}
                 />
                 <ButtonGroup
                   className="btn-group"
@@ -174,7 +183,7 @@ const Restrict = (props) => {
                 />
               </StyledTextWithSearchMark>
               <Box className="mt_4 " width="92%" height="75%">
-                {restrictsMaster.map((restrict) => (
+                {getRestricts().map((restrict) => (
                   <RestrictObj
                     key={restrict.get('id')}
                     restrict={restrict}
@@ -233,20 +242,6 @@ const Restrict = (props) => {
 const StyledTextWithSearchMark = styled.div`
   .btn-group {
     float: right;
-  }
-  input[type='text'] {
-    color: white;
-    background-color: #4a4a4a;
-    border-radius: 30px;
-    border: 1px solid gray;
-    padding: 5px 10px 5px 40px;
-    line-height: 100%;
-    font-size: 12pt;
-    width: 45%;
-  }
-  img {
-    position: absolute;
-    transform: translate(8px, 5px);
   }
 `;
 const StyledButtons = styled.div`

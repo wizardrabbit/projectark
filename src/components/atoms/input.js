@@ -22,19 +22,44 @@ export const InputCheckbox = (props) => (
   </StyledCheckbox>
 );
 export const InputTextWithSearchMark = (props) => {
-  const { ...otherProps } = props;
+  const { reset, ...otherProps } = props;
   return (
-    <>
+    <StyledTextWithSearchMark>
       <img
         width="20"
         src={require('../../images/icons/icon_ui/icon_ui_search.png').default}
         alt=""
       />
       <input type="text" {...otherProps} />
-    </>
+      <span onClick={reset} aria-hidden>
+        ✕
+      </span>
+    </StyledTextWithSearchMark>
   );
 };
-
+const StyledTextWithSearchMark = styled.div`
+  display: unset;
+  input[type='text'] {
+    color: white;
+    background-color: #4a4a4a;
+    border-radius: 30px;
+    border: 1px solid gray;
+    padding: 5px 10px 5px 40px;
+    line-height: 100%;
+    font-size: 12pt;
+    width: 45%;
+  }
+  img {
+    position: absolute;
+    transform: translate(8px, 5px);
+  }
+  span {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-25px, 4px);
+    font-size: 15pt;
+  }
+`;
 const StyledCheckbox = styled.label`
   padding: 1px 20px 0px 22px;
   margin: 5px 0px;
