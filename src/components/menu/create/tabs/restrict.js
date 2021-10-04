@@ -1,23 +1,24 @@
 import React from 'react';
-import { fromJS } from 'immutable';
+import { fromJS, Set } from 'immutable';
 import _ from 'lodash';
 import cx from 'classnames';
 import styled from 'styled-components';
 import Box, { BoxItem } from '../../../atoms/box';
 import { InputTextWithSearchMark } from '../../../atoms/input';
 import QuestionMark from '../../../atoms/question-mark';
-import operatorsData from '../../../../static/database/master/operators.json';
 import { ButtonGroup, ButtonWithOrder } from '../../../atoms/button';
 import Operator from '../../../atoms/operator';
 import RestrictObj from '../../../atoms/restrictObj';
+import operatorsData from '../../../../static/database/master/operators.json';
+import restrictsData from '../../../../static/database/master/restricts.json';
 
 const Restrict = (props) => {
   const { setting, setSetting } = props;
   const [operatorsMaster, setOperatorsMaster] = React.useState(fromJS(operatorsData));
+  const [restrictsMaster, setRestrictMaster] = React.useState(fromJS(restrictsData));
   const [searchTab, setSearchTab] = React.useState('operator');
   const [mode, setMode] = React.useState('allowed');
   const [search, setSearch] = React.useState('');
-  const [restrictTabSelected, setRestrictTabSelected] = React.useState(0);
 
   const [order, setOrder] = React.useState(fromJS({ target: 'rarity', desc: false }));
 
@@ -139,82 +140,44 @@ const Restrict = (props) => {
   const SearchRestrict = React.useCallback(
     () => (
       <BoxItem long>
-        <QuestionMark move_down={-45} move_right={275} />
-        <StyledTabs>
-          <button
-            className={cx({ active: restrictTabSelected === 0 })}
-            onClick={() => setRestrictTabSelected(0)}
-          >
-            단일분대
-          </button>
-          <button
-            className={cx({ active: restrictTabSelected === 1 })}
-            onClick={() => setRestrictTabSelected(1)}
-          >
-            진영제한
-          </button>
-          <button
-            className={cx({ active: restrictTabSelected === 3 })}
-            onClick={() => setRestrictTabSelected(2)}
-          >
-            직군금지
-          </button>
-          <button
-            className={cx({ active: restrictTabSelected === 4 })}
-            onClick={() => setRestrictTabSelected(3)}
-          >
-            일반제약
-          </button>
-        </StyledTabs>
-        <StyledContents>
-          {restrictTabSelected === 0 && (
-            <div className="h_100">
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-            </div>
-          )}
-          {restrictTabSelected === 1 && (
-            <div>
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-            </div>
-          )}
-          {restrictTabSelected === 2 && (
-            <div>
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-            </div>
-          )}
-          {restrictTabSelected === 3 && (
-            <div>
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-              <RestrictObj />
-            </div>
-          )}
-        </StyledContents>
+        <QuestionMark move_down={-45} move_right={400} />
+        <StyledTextWithSearchMark>
+          <InputTextWithSearchMark
+            className="w_50"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <ButtonGroup
+            className="btn-group"
+            setValue={setMode}
+            value={mode}
+            items={[
+              { id: 'allowed', name: '지정 모드' },
+              { id: 'disallowed', name: '금지 모드' },
+            ]}
+          />
+        </StyledTextWithSearchMark>
+        <Box className="mt_4 " width="92%" height="75%">
+          {restrictsMaster.map((restrict) => (
+            <RestrictObj
+              key={restrict.get('id')}
+              restrict={restrict}
+              getExpectedOpers={getExpectedOpers}
+              onClick={(operator_ids) => {
+                operator_ids.size > 0 &&
+                  setSetting((prevState) =>
+                    prevState.updateIn(['restrict', mode], (list) => {
+                      const result = new Set(list.concat(operator_ids));
+                      return result.toList();
+                    }),
+                  );
+              }}
+            />
+          ))}
+        </Box>
       </BoxItem>
     ),
-    [restrictTabSelected],
+    [getExpectedOpers, mode, restrictsMaster, search, setSetting],
   );
   return (
     <div className="d_if w_100">
@@ -352,39 +315,4 @@ const StyledSearchTab = styled.div`
   }
 `;
 
-const StyledTabs = styled.div`
-  float: left;
-  background-color: transparent;
-  width: 28%;
-  height: 90%;
-  display: inline-block;
-  button {
-    font-size: 15pt;
-    display: block;
-    background-color: inherit;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid gray;
-    color: white;
-    padding: 25px 5px;
-    width: 100%;
-    outline: none;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    line-height: 100%;
-  }
-  button:hover,
-  button.active {
-    background: linear-gradient(to right, gray, transparent);
-  }
-`;
-const StyledContents = styled.div`
-  display: inline-block;
-  width: 70%;
-  height: 94%;
-  overflow-y: auto;
-  text-align: center;
-`;
 export default Restrict;
