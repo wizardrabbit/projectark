@@ -22,18 +22,19 @@ export const ButtonGroup = (props) => {
 };
 
 export const ButtonWithOrder = (props) => {
-  const { order, children, ...otherProps } = props;
-
+  const { id, order, children, ...otherProps } = props;
   return (
     <>
-      <StyledButtonWithOrder {...otherProps}>
+      <StyledButtonWithOrder id={id} {...otherProps}>
         {children}
-        <img
-          id={otherProps.id}
-          className={cx({ reverse: !order })}
-          src={require('../../images/icons/icon_ui/icon_ui_dropdown.png').default}
-          alt=""
-        />
+        {order.get('target') == id && (
+          <img
+            id={id}
+            className={cx({ reverse: order.get('desc') })}
+            src={require('../../images/icons/icon_ui/icon_ui_dropdown.png').default}
+            alt=""
+          />
+        )}
       </StyledButtonWithOrder>
     </>
   );
@@ -61,10 +62,10 @@ const StyledButtonGroup = styled.div`
     background-color: gray;
     border: 0px;
     color: white;
-    padding: 7px 10px;
+    padding: 8px 10px;
     cursor: pointer;
     line-height: 100%;
-    font-size: 12pt;
+    font-size: 11pt;
   }
   button:first-child {
     border-top-left-radius: 20px;

@@ -23,46 +23,18 @@ export const InputCheckbox = (props) => (
 );
 export const InputTextWithSearchMark = (props) => {
   const { ...otherProps } = props;
-  const [mode, setMode] = React.useState(1);
   return (
-    <StyledTextWithSearchMark>
+    <>
       <img
         width="20"
         src={require('../../images/icons/icon_ui/icon_ui_search.png').default}
         alt=""
       />
       <input type="text" {...otherProps} />
-      <ButtonGroup
-        className="btn-group"
-        setValue={setMode}
-        value={mode}
-        items={[
-          { id: 1, name: '지정 모드' },
-          { id: 2, name: '금지 모드' },
-        ]}
-      />
-    </StyledTextWithSearchMark>
+    </>
   );
 };
-const StyledTextWithSearchMark = styled.div`
-  .btn-group {
-    float: right;
-  }
-  input[type='text'] {
-    color: white;
-    background-color: #4a4a4a;
-    border-radius: 30px;
-    border: 1px solid gray;
-    padding: 5px 10px 5px 40px;
-    line-height: 100%;
-    font-size: 12pt;
-    width: 45%;
-  }
-  img {
-    position: absolute;
-    transform: translate(8px, 5px);
-  }
-`;
+
 const StyledCheckbox = styled.label`
   padding: 1px 20px 0px 22px;
   margin: 5px 0px;

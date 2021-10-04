@@ -6,9 +6,11 @@ const Box = (props) => {
   const { height, width, title, children, className } = props;
   return (
     <StyledBox className={cx([className])} style={{ height, width }}>
-      <div className="t_center mb_3">
-        <h1>{title}</h1>
-      </div>
+      {title && (
+        <div className="t_center mb_3">
+          <h1>{title}</h1>
+        </div>
+      )}
       {children}
     </StyledBox>
   );
@@ -21,5 +23,9 @@ const StyledBox = styled.div`
   border: 2px solid var(--white-line-color);
   border-radius: 20px;
   padding: 15px;
+
+  div::-webkit-scrollbar {
+    width: 10px;
+  }
 `;
 export default Box;

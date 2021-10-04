@@ -1,5 +1,11 @@
 [
-    { "id": 1, "name": "Castle-3", "rarity": 1, "position": 5, "cost": 3, "create_at": "" },
-    { "id": 2, "name": "Lancet-2", "rarity": 1, "position": 3, "cost": 3, "create_at": "" },
-    { "id": 3, "name": "THRM-EX", "rarity": 1, "position": 8, "cost": 3, "create_at": "" }
+  { "id": 1, "name": "Castle-3", "rarity": 1, "position_id": 5, "cost": 3, "aliasName": ["캐슬"] },
+  { "id": 2, "name": "Lancet-2", "rarity": 1, "position_id": 3, "cost": 3, "aliasName": ["란셋"] },
+  { "id": 3, "name": "THRM-EX", "rarity": 1, "position_id": 8, "cost": 3, "aliasName": ["써멀"] },
+  { "id": 4, "name": "레인저", "rarity": 2, "position_id": 2, "cost": 5, "aliasName": ["할배"] },
+  { "id": 5, "name": "느와르 코르네", "rarity": 2, "position_id": 6, "cost": 12, "aliasName": [] },
+  { "id": 6, "name": "12F", "rarity": 2, "position_id": 4, "cost": 22, "aliasName": ["12층"] },
+  { "id": 7, "name": "두린", "rarity": 2, "position_id": 4, "cost": 10, "aliasName": [] },
+  { "id": 8, "name": "야토", "rarity": 2, "position_id": 1, "cost": 5, "aliasName": [] },
+  { "id": 9, "name": "멜란사", "rarity": 3, "position_id": 5, "cost": 13, "aliasName": ["말랑사", "검성"] }
 ]

@@ -17,7 +17,7 @@ const initSetting = {
     },
     title: '',
   },
-  restrict: {},
+  restrict: { allowed: [], disallowed: [] },
   additional: {},
 };
 
@@ -29,7 +29,6 @@ const Create = () => {
   const resetSetting = () => setSetting(fromJS(initSetting));
 
   const removeAllRecords = React.useCallback(() => {
-    console.log(1);
     localStorage.removeItem('records');
     setTemp([]);
   }, []);
