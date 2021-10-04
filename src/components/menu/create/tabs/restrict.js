@@ -50,8 +50,10 @@ const Restrict = (props) => {
             (operator) => operator.get('id') == operator_id,
           );
           return (
-            foundOperator.get('name').includes(search) ||
-            foundOperator.get('aliasName').find((item) => item.includes(search))
+            _.lowerCase(foundOperator.get('name')).includes(_.lowerCase(search)) ||
+            foundOperator
+              .get('aliasName')
+              .find((item) => _.lowerCase(item).includes(_.lowerCase(search)))
           );
         })
       : expectedOpers;
