@@ -12,7 +12,6 @@ const initSetting = {
     map: {
       mainStory: [],
       resource: [],
-      chip: [],
       event: [],
     },
     title: '',

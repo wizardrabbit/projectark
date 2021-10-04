@@ -1,27 +1,12 @@
 import cx from 'classnames';
 import React from 'react';
 import styled from 'styled-components';
-import Box from '../../../atoms/box';
+import Box, { BoxItem } from '../../../atoms/box';
 import QuestionMark from '../../../atoms/question-mark';
 import { InputTogglebox, InputSlider, InputText, InputCheckbox } from '../../../atoms/input';
 import mainStoryMap from '../../../../static/database/combat/map/mainStory.json';
 import resourceMap from '../../../../static/database/combat/map/resource.json';
 import eventMap from '../../../../static/database/combat/map/event.json';
-
-const BoxItem = (props) => (
-  <div
-    className={cx([
-      'd_ib',
-      props.long ? 'w_100' : 'w_50',
-      'h_100',
-      'v_sub',
-      props.center && 't_center',
-    ])}
-  >
-    {props.title && <h3>{props.title}</h3>}
-    {props.children}
-  </div>
-);
 
 const Default = (props) => {
   const { setting, setSetting } = props;
@@ -43,12 +28,18 @@ const Default = (props) => {
       <div className="mb_2">
         <button
           onClick={(e) => {
-            e.target.classList.toggle('active');
-            e.target.nextSibling.classList.toggle('panel');
+            e.currentTarget.classList.toggle('active');
+            e.currentTarget.nextSibling.classList.toggle('panel');
           }}
         >
           {title}
-          <span>⚙</span>
+          <span>
+            <img
+              width="18"
+              src={require('../../../../images/icons/icon_ui/icon_ui_gear.png').default}
+              alt=""
+            />
+          </span>
         </button>
         <div className="panel">{children}</div>
       </div>
@@ -222,6 +213,7 @@ const StyledAccordion = styled.div`
   }
   button span {
     float: right;
+    transform: translateY(2px);
   }
   .active,
   button:hover {

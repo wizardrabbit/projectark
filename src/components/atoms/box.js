@@ -16,6 +16,21 @@ const Box = (props) => {
   );
 };
 
+export const BoxItem = (props) => (
+  <div
+    className={cx([
+      'd_ib',
+      props.long ? 'w_100' : 'w_50',
+      'h_100',
+      'v_sub',
+      props.center && 't_center',
+    ])}
+  >
+    {props.title && <h3>{props.title}</h3>}
+    {props.children}
+  </div>
+);
+
 const StyledBox = styled.div`
   display: inline-block;
   color: white;

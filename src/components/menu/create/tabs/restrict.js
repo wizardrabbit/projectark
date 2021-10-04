@@ -1,36 +1,19 @@
 import React from 'react';
-import cx from 'classnames';
 import { fromJS } from 'immutable';
 import _ from 'lodash';
 import styled from 'styled-components';
-import Box from '../../../atoms/box';
+import Box, { BoxItem } from '../../../atoms/box';
 import { InputTextWithSearchMark } from '../../../atoms/input';
 import QuestionMark from '../../../atoms/question-mark';
 import operatorsData from '../../../../static/database/master/operators.json';
 import { ButtonGroup, ButtonWithOrder } from '../../../atoms/button';
 import Operator from '../../../atoms/operator';
 
-const BoxItem = (props) => (
-  <div
-    className={cx([
-      'd_ib',
-      props.long ? 'w_100' : 'w_50',
-      'h_100',
-      'v_sub',
-      props.center && 't_center',
-    ])}
-  >
-    {props.title && <h3>{props.title}</h3>}
-    {props.children}
-  </div>
-);
-
-const initOrder = { target: 'rarity', desc: false };
 const Restrict = (props) => {
   const { setting, setSetting } = props;
   const operatorsMaster = fromJS(operatorsData);
   const [mode, setMode] = React.useState('allowed');
-  const [order, setOrder] = React.useState(fromJS(initOrder));
+  const [order, setOrder] = React.useState(fromJS({ target: 'rarity', desc: false }));
   const [search, setSearch] = React.useState('');
 
   const toggleOrder = (e) => setOrder(fromJS({ target: e.target.id, desc: !order.get('desc') }));

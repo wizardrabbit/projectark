@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Box from '../../atoms/box';
 import { InputText } from '../../atoms/input';
+
 const GenerateButtonBox = (props) => {
   const { setting, setSetting, resetSetting, setTemp } = props;
   const handleSetting = React.useCallback(
