@@ -29,9 +29,9 @@ const StyledOperator = styled.div`
   width: 75px;
   min-height: 80px;
   max-height: 100px;
-  padding: 5px;
+  padding: 6px;
   display: inline-block;
-  font-size: 10pt;
+  font-size: 9pt;
   cursor: pointer;
   border: 1px solid transparent;
   :hover {
