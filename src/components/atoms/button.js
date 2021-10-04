@@ -67,27 +67,36 @@ const StyledButtonGroup = styled.div`
     line-height: 100%;
     font-size: 11pt;
   }
+
   button:first-child {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-  }
-  button:not(:last-child) {
-    border-right: none;
   }
   button:last-child {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
   }
+
+  button:first-child:hover {
+    background-color: #36a0f5;
+  }
+  button:last-child:hover {
+    background-color: #ffbd87;
+  }
+  button:first-child.active {
+    background-color: #2196f3;
+  }
+
+  button:last-child.active {
+    background-color: orange;
+  }
+  button:not(:last-child) {
+    border-right: none;
+  }
+
   :after {
     content: '';
     clear: both;
     display: table;
-  }
-
-  button:hover {
-    background-color: #ffbd87;
-  }
-  .active {
-    background-color: orange;
   }
 `;

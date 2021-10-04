@@ -50,9 +50,9 @@ const RestrictObj = (props) => {
 };
 
 const Styled = styled.div`
-  width: 100px;
+  width: 105px;
   height: 54px;
-  padding: 2px 8px 6px 8px;
+  padding: 4px 8px 8px 2px;
   display: inline-block;
   font-size: 7pt;
   border: 1px solid transparent;
@@ -85,9 +85,10 @@ const Styled = styled.div`
     cursor: pointer;
   }
   .name {
-    padding: 3px 2px 3px 10px;
+    padding: 3px 0px 3px 12px;
     font-size: 3pt;
     float: right;
+    text-align: center;
   }
   button {
     float: right;
@@ -97,6 +98,7 @@ const Styled = styled.div`
     border: 0;
     padding: 0;
     width: 35px;
+    margin-right: 2px;
   }
 `;
 export default RestrictObj;
