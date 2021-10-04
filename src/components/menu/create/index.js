@@ -19,6 +19,7 @@ const initSetting = {
   },
   restrict: { allowed: [], disallowed: [] },
   additional: {},
+  created_at: 0,
 };
 
 const Create = () => {

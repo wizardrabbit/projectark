@@ -32,7 +32,7 @@ const GenerateButtonBox = (props) => {
         className="t_center"
         onClick={() => {
           const records = JSON.parse(localStorage.getItem('records') || JSON.stringify([]));
-          records.push(setting.toJS());
+          records.push(setting.set('created_at', Date.now()).toJS());
           localStorage.setItem('records', JSON.stringify(records));
           resetSetting();
           setTemp(records);

@@ -649,5 +649,5 @@ footer {
   line-height: 100%;
 }
 .border {
-  border: 1px solid var(--white-line-color);
+  border: 1px solid var(--white-line-color) !important;
 }

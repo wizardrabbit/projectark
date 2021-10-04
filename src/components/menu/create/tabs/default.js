@@ -70,6 +70,7 @@ const Default = (props) => {
             setting.getIn(['default', 'signImage']) === item && 'border',
           ])}
           onClick={() => setSetting((prevState) => prevState.setIn(['default', 'signImage'], item))}
+          style={{ border: '1px solid transparent' }}
           {...otherProps}
         />
       );
