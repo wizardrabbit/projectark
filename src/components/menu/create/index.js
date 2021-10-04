@@ -52,13 +52,11 @@ const Create = () => {
         <div className="tabs">
           <TabButton index={1} title="기본 설정" />
           <TabButton index={2} title="출격 오퍼레이터 지정/금지" />
-          <TabButton index={3} title="추가 제약" />
         </div>
         <div className="d_if h_100 w_100">
           <div style={{ width: '70%' }}>
             {selected === 1 && <Tabs.Default setting={setting} setSetting={setSetting} />}
             {selected === 2 && <Tabs.Restrict setting={setting} setSetting={setSetting} />}
-            {selected === 3 && <Tabs.Additional setting={setting} setSetting={setSetting} />}
           </div>
           <div style={{ width: '30%' }}>
             <GenerateButtonBox

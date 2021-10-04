@@ -51,7 +51,7 @@ const StyledButtonWithOrder = styled.button`
   margin: 0px 3px;
   img {
     padding: 1px 0px 0px 4px;
-    width: 10px;
+    width: 9px;
   }
   img.reverse {
     transform: scaleY(-1);

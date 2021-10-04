@@ -6,7 +6,7 @@ const QuestionMark = (props) => (
       borderRadius: '100%',
       backgroundColor: 'white',
       color: 'black',
-      padding: '2px 3px 5px 4px',
+      padding: '3px 2px 0px 4px',
       transform: `translate(${props.move_right || 10}px, ${props.move_down || 0}px)`,
       cursor: 'pointer',
       fontWeight: 'bold',
