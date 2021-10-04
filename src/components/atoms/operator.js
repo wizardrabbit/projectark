@@ -26,7 +26,7 @@ const Operator = (props) => {
 
 const StyledOperator = styled.div`
   vertical-align: top;
-  width: 80px;
+  width: 75px;
   min-height: 80px;
   max-height: 100px;
   padding: 5px;
