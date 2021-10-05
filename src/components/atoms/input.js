@@ -31,9 +31,11 @@ export const InputTextWithSearchMark = (props) => {
         alt=""
       />
       <input type="text" {...otherProps} />
-      <span onClick={reset} aria-hidden>
-        ✕
-      </span>
+      {otherProps.value && (
+        <span onClick={reset} aria-hidden>
+          ✕
+        </span>
+      )}
     </StyledTextWithSearchMark>
   );
 };
@@ -56,7 +58,7 @@ const StyledTextWithSearchMark = styled.div`
   span {
     cursor: pointer;
     position: absolute;
-    transform: translate(-25px, 4px);
+    transform: translate(-25px, 0px);
     font-size: 15pt;
   }
 `;

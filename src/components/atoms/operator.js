@@ -31,7 +31,7 @@ const StyledOperator = styled.div`
   max-height: 100px;
   padding: 6px;
   display: inline-block;
-  font-size: 9pt;
+  font-size: 8pt;
   cursor: pointer;
   border: 1px solid transparent;
   :hover {

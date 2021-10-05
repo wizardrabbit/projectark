@@ -52,7 +52,7 @@ const RestrictObj = (props) => {
 const Styled = styled.div`
   width: 105px;
   height: 54px;
-  padding: 4px 8px 8px 2px;
+  padding: 4px 8px 10px 2px;
   display: inline-block;
   font-size: 7pt;
   border: 1px solid transparent;
@@ -77,7 +77,7 @@ const Styled = styled.div`
   }
   .question-mark {
     float: right;
-    padding: 1px 2px 1px 2px;
+    padding: 0px 2px 0px 2px;
     font-size: 3pt;
     background-color: white;
     border-radius: 20px;
