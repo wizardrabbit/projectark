@@ -29,8 +29,7 @@ const Restrict = (props) => {
     });
 
   React.useEffect(() => {
-    const result = operatorsMaster.sortBy((operator) => operator.get(order.get('target')));
-
+    const result = fromJS(operatorsData).sortBy((operator) => operator.get(order.get('target')));
     setOperatorsMaster(order.get('desc') ? result : result.reverse());
   }, [order]);
 
