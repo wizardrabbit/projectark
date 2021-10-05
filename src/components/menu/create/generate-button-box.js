@@ -1,7 +1,9 @@
+import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import Box from '../../atoms/box';
 import { InputText } from '../../atoms/input';
+import { randomTitles } from '../../static';
 
 const GenerateButtonBox = (props) => {
   const { setting, setSetting, resetSetting, setTemp } = props;
@@ -33,7 +35,15 @@ const GenerateButtonBox = (props) => {
         className="t_center"
         onClick={() => {
           const records = JSON.parse(localStorage.getItem('records') || JSON.stringify([]));
-          records.push(setting.set('created_at', Date.now()).toJS());
+          records.push(
+            setting
+              .set('created_at', Date.now())
+              .updateIn(
+                ['default', 'title'],
+                (title) => title || _.get(randomTitles, _.random(randomTitles.length - 1)),
+              )
+              .toJS(),
+          );
           localStorage.setItem('records', JSON.stringify(records));
           resetSetting();
           setTemp(records);
