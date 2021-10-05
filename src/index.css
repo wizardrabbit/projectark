@@ -232,7 +232,8 @@ footer {
   text-align: center;
   font-size: 28px;
   padding-bottom: 8px;
-  font-family: "SDGothicNeoM", "Noto Sans KR", sans-serif;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-weight: 400;
   border-bottom: 2px solid var(--white-line-color);
 }
 
@@ -278,7 +279,8 @@ footer {
    padding-top: 20px;
    padding-bottom: 20px;
    font-size: 66px;
-   font-family: "SDGothicNeoH", "Noto Sans KR", sans-serif;
+   font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+   font-weight: 900;
    text-shadow: 0px 0px 20px white;
    animation: shine 10s infinite;
    border-bottom: 2px solid var(--white-line-color);
@@ -290,7 +292,8 @@ footer {
    text-align: left;
    padding: 50px;
    height: 270px;
-   font-family: "SDGothicNeoM", "Noto Sans KR", sans-serif;
+   font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+   font-weight: 400;
    font-size: 32px;
  }
 
@@ -323,7 +326,8 @@ footer {
     "info info score";
   grid-gap: 15px;
   text-align: left;
-  font-family: "SDGothicNeoM", "Noto Sans KR", sans-serif;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-weight: 400;
   font-size: 32px;
 }
 
@@ -335,7 +339,7 @@ footer {
 .record-title {
   grid-area: title;
   margin-left: 20px;
-  font-family: "SDGothicNeoM", "Noto Sans KR";
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR";
   font-weight: 600;
   font-size: 26px;
   display: table-cell;
@@ -405,7 +409,8 @@ footer {
 
 .warning-text {
   font-size: 16px;
-  font-family: "SDGothicNeoT", "Noto Sans KR", sans-serif;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-weight: 100;
 }
 
 .warning-msg {
@@ -444,7 +449,8 @@ footer {
 
 .data-record-list div {
   position: relative;
-  font-family: "SDGothicNeoM", "Noto Sans KR", sans-serif;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-weight: 400;
   border: 2px solid var(--white-line-color);
   padding: 3px;
   font-size: 20px;

@@ -1,29 +1,31 @@
-@font-face {
-  font-family: "SDGothicNeoH";
+
+@import "//cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/css/all.min.css";
+/* @font-face {
+  font-family: "AppleSDGothicNeoH";
   font-display: fallback;
 
-  src: url("./SDGothicNeoH.woff") format("woff"), url("./SDGothicNeoH.ttf") format("truetype");
+  src: url("./AppleSDGothicNeoH.woff") format("woff"), url("./AppleSDGothicNeoH.ttf") format("truetype");
 
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SDGothicNeoM";
+  font-family: "AppleSDGothicNeoM";
   font-display: fallback;
 
-  src: url("./SDGothicNeoM.woff") format("woff"), url("./SDGothicNeoM.ttf") format("truetype");
+  src: url("./AppleSDGothicNeoM.woff") format("woff"), url("./AppleSDGothicNeoM.ttf") format("truetype");
 
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SDGothicNeoT";
+  font-family: "AppleSDGothicNeoT";
   font-display: fallback;
 
-  src: url("./SDGothicNeoT.woff") format("woff"), url("./SDGothicNeoT.ttf") format("truetype");
+  src: url("./AppleSDGothicNeoT.woff") format("woff"), url("./AppleSDGothicNeoT.ttf") format("truetype");
 
   font-weight: 400;
   font-style: normal;
-}
+} */
