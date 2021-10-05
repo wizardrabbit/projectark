@@ -30,7 +30,7 @@ input:focus {
 
 #extra {
   position: fixed;
-  background-image: url("images/img_background.png");
+  background-image: url("images/img_background.gif");
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
